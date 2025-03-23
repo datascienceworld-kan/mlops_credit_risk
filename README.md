@@ -9,7 +9,7 @@ The data consists of approved loans from 2007 to 2011 from [Lending Club](www.le
 
 The model was deployed to the web using the FastAPI package and API tests were created. The API tests will be embedded in a CI/CD framework using GitHub Actions. After we built our API locally and tested it, we deployed it to Heroku and tested it again live. Weights and Biases were used to manage and track all artifacts.
 
-<img align="center" src="https://github.com/Morsinaldo/credit_risk_mlops/blob/main/images/Model_card.png" />
+<img align="center" src="https://imgur.com/crJkkf3.png" />
 
 So, in general, the notebooks used were divided into 7 parts:
 
@@ -21,33 +21,38 @@ So, in general, the notebooks used were divided into 7 parts:
   6. Training
   7. Test
 
-You can read more about the notebook walkthrough in our [Medium](https://medium.com/@alessandro.pereira.700/from-classic-models-to-production-models-8d4ab873ac4d) article
+## Virtual Environment
 
-## Anaconda Environment
-
-Create a conda environment with ``environment.yml``:
+Create a python virtual environment:
 
 ```bash
-conda env create --file environment.yml
+python3 -m venv .env
 ```
 
-To remove an environment in your terminal window run:
+To activate this environment, using the following command:
 
 ```bash
-conda remove --name myenv --all
+# For linux, macOS
+source my_env/bin/activate
 ```
-
-To list all available environments run:
 
 ```bash
-conda env list
+# For windows command line
+my_env\Scripts\activate
+
+# For windows PowerShell
+my_env\Scripts\Activate.ps1
 ```
 
-To activate the environment, use
+## Practice notebooks
+To understand the procedures of design code on local, including important procedures like: fetching data, visualization, preprocessing, checking data, segregating data, training, and testing, you should run step-by-step all notebooks on the `notebooks` directory. Note that, you should select a right kernel is `.venv` to avoid libraries conflict by 
+![](https://imgur.com/H02kq5N.png)
 
-```bash
-conda activate myenv
+You should register `Weight and Bias` to storage all artifacts, metrics, and models. You can register your account on [wandb](https://wandb.ai/site). After that, you should create a virtual environment file is `notebooks/.env`:
 ```
+WANDB_API_KEY=Your_key_here
+```
+This `WANDB_API_KEY` is used to login into your wandb project inside each notebook.
 
 ## Fast API
 
